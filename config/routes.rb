@@ -1311,12 +1311,17 @@ CanvasRails::Application.routes.draw do
     end
 
     scope(controller: :question_banks) do
+      # question banks
       get "accounts/:account_id/question_banks", action: :index, as: "question_banks"
       post "accounts/:account_id/question_banks", action: :create, as: "create_question_bank"
       put "accounts/:account_id/question_banks/:id", action: :update, as: "update_question_bank"
       delete "accounts/:account_id/question_banks/:id", action: :destroy, as: "destroy_question_bank"
 
+      # question bank -> assessment questions
       get "accounts/:account_id/question_banks/:question_bank_id", action: :questions, as: "question_banks_questions"
+      post "accounts/:account_id/question_banks/:question_bank_id/assessment_questions", controller: :assessment_questions, action: :create, as: "create_question_bank_question"
+      put "accounts/:account_id/question_banks/:question_bank_id/assessment_questions/:id", controller: :assessment_questions, action: :update, as: "update_question_bank_question"
+      delete "accounts/:account_id/question_banks/:question_bank_id/assessment_questions/:id", controller: :assessment_questions, action: :destroy, as: "destroy_question_bank_question"
     end
 
     scope(controller: :authentication_audit_api) do
