@@ -1312,6 +1312,10 @@ CanvasRails::Application.routes.draw do
 
     scope(controller: :question_banks) do
       get "accounts/:account_id/question_banks", action: :index, as: "question_banks"
+      post "accounts/:account_id/question_banks", action: :create, as: "create_question_bank"
+      put "accounts/:account_id/question_banks/:id", action: :update, as: "update_question_bank"
+      delete "accounts/:account_id/question_banks/:id", action: :destroy, as: "destroy_question_bank"
+
       get "accounts/:account_id/question_banks/:question_bank_id", action: :questions, as: "question_banks_questions"
     end
 
