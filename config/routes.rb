@@ -1318,7 +1318,7 @@ CanvasRails::Application.routes.draw do
       delete "accounts/:account_id/question_banks/:id", action: :destroy, as: "destroy_question_bank"
 
       # question bank -> assessment questions
-      get "accounts/:account_id/question_banks/:question_bank_id", action: :questions, as: "question_banks_questions"
+      get "accounts/:account_id/question_banks/:question_bank_id/assessment_questions", action: :questions, as: "question_banks_questions"
       post "accounts/:account_id/question_banks/:question_bank_id/assessment_questions", controller: :assessment_questions, action: :create, as: "create_question_bank_question"
       put "accounts/:account_id/question_banks/:question_bank_id/assessment_questions/:id", controller: :assessment_questions, action: :update, as: "update_question_bank_question"
       delete "accounts/:account_id/question_banks/:question_bank_id/assessment_questions/:id", controller: :assessment_questions, action: :destroy, as: "destroy_question_bank_question"
